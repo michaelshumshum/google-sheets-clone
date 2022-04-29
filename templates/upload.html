@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" href="{% static 'app/style.css' %}?d={% now 'U' %}" />
+  <link rel="icon" type="image/x-icon" href="{% static 'app/favicon.ico' %}">
+  <meta charset="utf-8">
+  <title>Upload Your Data</title>
+</head>
+
+<body>
+  <div class='center-container'>
+    <h1>Please upload a CSV file</h1>
+    <form action="{% url 'upload_files' %}" method="post" enctype="multipart/form-data">
+      {{msg}}
+      {% csrf_token %}
+      <p>{{ form1.non_field_errors }}</p>
+      <p>
+        {{ form1.file.errors }}
+        {{ form1.file }}
+      </p>
+      <p><input class='button' type='submit' value='Upload' /></p>
+    </form>
+    <h1>...or choose an existing one.</h1>
+    <form action="{% url 'upload_files' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <p>{{ form2.non_field_errors }}</p>
+      <p>
+        {{ form2.radio }}
+      </p>
+      <p><input class='button' type='submit' value='Use this file' /></p>
+    </form>
+  </div>
+</body>
+
+</html>

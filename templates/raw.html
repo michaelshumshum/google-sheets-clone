@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static 'app/style.css' %}?d={% now 'U' %}" />
+  <link rel="icon" type="image/x-icon" href="{% static 'app/favicon.ico' %}">
+  <title>STATS</title>
+</head>
+
+<body>
+  {{data|safe}}
+</body>
+
+</html>

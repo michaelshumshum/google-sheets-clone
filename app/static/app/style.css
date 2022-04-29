@@ -1,0 +1,150 @@
+@font-face {
+  font-family: Monaco !important;
+  src: url(../app/Monaco.ttf);
+}
+
+body {
+  background: #131727;
+  color: white;
+  font-family: Monaco;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+h1, h3 {
+  text-align: center;
+}
+
+.center-container {
+  margin: 5em;
+}
+
+.btn-group {
+  margin: 0.5em;
+}
+
+.btn-group .button {
+  display: inline-block;
+}
+
+#main-grid {
+  display: grid;
+  grid-template-columns: 30% auto;
+}
+
+.main-grid-item, #summary-data {
+  padding: 1em;
+  margin: 0.5em;
+}
+
+#controller {
+  border: 0.1em solid white;
+  border-radius: 0.5em;
+  padding: 1em;
+}
+
+.grid-item {
+  margin: 0.5em;
+}
+
+.tab-content-group {
+  border: 0.1em solid white;
+  padding: 1em;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.tab-content {
+  display: none;
+  position: relative;
+  background: #131727
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.summary-section {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  width: 50%;
+  position: relative;
+}
+
+input, select {
+  border: 0.2em solid white;
+  font-family: Monaco;
+  color: #131727;
+  background: white;
+  border-radius: 1em;
+  padding: 0.7em;
+  text-align: center;
+  transition: all 100ms ease-out;
+}
+
+.button {
+  border: 0.2em solid white;
+  font-family: Monaco;
+  user-select: none;
+  color: #131727;
+  background: white;
+  border-radius: 1em;
+  padding: 1em;
+  text-align: center;
+  transition: all 100ms ease-out;
+}
+
+.tab-btn {
+  display: inline-block;
+  border: 0.1em solid white;
+  border-bottom: none;
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  transition: all 100ms ease-out;
+}
+
+.tab-btn.active {
+  color: #131727;
+  background: white;
+}
+
+.button:hover, .tab-btn:hover, input:not([type='text']):hover, select:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1em white;
+}
+
+.button:active {
+  background: #131727;
+  color: white;
+}
+
+.auto-apply-group * {
+  display: inline-block
+}
+
+table {
+  outline: none;
+  border: none;
+}
+
+p {
+  user-select: none
+}
+
+td, th {
+  padding: 0.5em;
+  text-align: left;
+  outline: none;
+  border: none;
+}
+
+th {
+  border-bottom: 0.1em solid white;
+}

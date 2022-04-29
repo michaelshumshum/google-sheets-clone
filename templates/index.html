@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" href="{% static 'app/style.css' %}?d={% now 'U' %}" />
+  <link rel="icon" type="image/x-icon" href="{% static 'app/favicon.ico' %}">
+  <script src="{% static 'app/main_script.js' %}?d={% now 'U' %}"></script>
+  <meta charset="utf-8">
+  <title>STATS</title>
+</head>
+
+<body>
+  <div class='center-container'>
+    <div class='btn-group'>
+      <div id='back-btn' class='button'>
+        &lt Back
+      </div>
+      <div id='reset-btn' class='button'>
+        Reset to Original
+      </div>
+      <div id='raw-data-btn' class='button'>
+        View Original Data
+      </div>
+      <div id='apply-btn' class='button'>
+        Apply Changes
+        <div style='background: #131727; color: white; display: inline; padding: 0.5em; border-radius: 0.5em;'>
+          <label>Auto</label>
+          <input id='auto-apply' type="checkbox" value='auto-apply' />
+        </div>
+      </div>
+    </div>
+    <div id='summary-data'>
+      <h2>Data Summary</h2>
+      <div id='summarybox' class='tab-group'>
+        {%for h in data_summary%}
+        <div class="tab-btn {{h.name}}">
+          {{h.name}}
+        </div>
+        {%endfor%}
+        <div class='tab-content-group'>
+          {%for h in data_summary%}
+          <div class='tab-content {{h.name}}'>
+            <div class='summary-section'>
+              {% for key, value in h.items %}
+              {% if key != 'name'%}
+              <div class='grid-item' style='text-align:right'>
+                {{key}}
+              </div>
+              <div class='grid-item'>
+                {{value}}
+              </div>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          {%endfor%}
+        </div>
+      </div>
+    </div>
+    <div id='main-grid'>
+      <div class='main-grid-item'>
+        <div id='controller'>
+          <form id='controller-form'>
+            <h3>DATA</h3>
+            <p>Sort data by:
+              {{ form.sort_dropdown }}
+              {{ form.sort_ascending.label}}
+              {{ form.sort_ascending }}
+            </p>
+            <h3>GRAPH</h3>
+            <p>
+              x-axis: {{form.graph_x_dropdown}}
+              y-axis: {{form.graph_y_dropdown}}
+            </p>
+          </form>
+        </div>
+      </div>
+      <div class='main-grid-item'>
+        <div id='datagraphbox' class='tab-group'>
+          <div class='tab-btn DATA'>DATA</div>
+          <div class='tab-btn GRAPH'>GRAPH</div>
+          <div class='tab-content-group'>
+            <div class='tab-content DATA'>
+              {{dataframe_html|safe}}
+            </div>
+            <div class='tab-content GRAPH'>
+              {{graph|safe}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

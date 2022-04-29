@@ -1,0 +1,4 @@
+pandas==1.4.1
+plotly==5.7.0
+Django==4.0.4
+django-picklefield==3.0.1
